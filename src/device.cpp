@@ -89,8 +89,8 @@ void Device::print(Window& window)
     // if graphs should be hidden ...
     if(SettingStore::get("MultipleDevices"))
     {
-		window.print() << "Incoming: " << getString(m_deviceGraphIn.getMaxDeflection()) << endl;
-        window.print(window.getWidth() / 2) << "Outgoing: " << getString(m_deviceGraphOut.getMaxDeflection()) << endl;
+		window.print() << "Incoming:";
+        window.print(window.getWidth() / 2) << "Outgoing:" << endl;
         
         int statusY = window.getY();
         
@@ -113,7 +113,7 @@ void Device::print(Window& window)
         printStatisticsIn(window, window.getWidth() * 2 / 3 + 2, window.getY() - 5);
         
         // outgoing traffic
-        window.print() << "Outgoing:" << getString(m_deviceGraphOut.getMaxDeflection())<<endl;
+        window.print() << "Outgoing: " << getString(m_deviceGraphOut.getMaxDeflection())<<endl;
         
         m_deviceGraphOut.setNumOfBars(window.getWidth() * 2 / 3);
         m_deviceGraphOut.setHeightOfBars(window.getHeight() - window.getY());

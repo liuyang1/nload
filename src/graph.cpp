@@ -19,12 +19,14 @@
 #include "setting.h"
 #include "settingstore.h"
 #include "window.h"
+#include <algorithm>
 
 using namespace std;
 
 Graph::Graph()
-    : m_heightOfBars(5), m_maxDeflection(10 * 1024 * 1024 / 8)
+    : m_heightOfBars(5), m_maxDeflection(1)
 {
+	setDynamicMax();
 }
 
 Graph::~Graph()
@@ -61,12 +63,21 @@ void Graph::update(unsigned long long value)
     if(m_values.size() > 1)
         m_values.pop_back();
 }
-
+void Graph::updateMaxDeflection()
+{
+	if (isDynamicMax) {
+		unsigned long long maxTraffic = *(max_element(m_values.begin(), m_values.end()));
+		unsigned long long maxThresh = getThresh(maxTraffic);
+		if (maxThresh != 0)
+			setMaxDeflection(maxThresh);
+	}
+}
 // print the graph with the upper left corner at the coordinates (x, y)
 void Graph::print(Window& window, int x, int y)
 {
+	updateMaxDeflection();
     window.setXY(x, y);
-    
+	
     // cycle through through the lines
     for(unsigned int l = 0; l < m_heightOfBars; l++)
     {

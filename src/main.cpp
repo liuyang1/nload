@@ -60,7 +60,7 @@
 #define STANDARD_AVERAGE_WINDOW 300
 #define STANDARD_DATA_FORMAT Statistics::humanReadableByte
 #define STANDARD_HIDE_GRAPHS false
-#define STANDARD_MAX_DEFLECTION 10240
+// #define STANDARD_MAX_DEFLECTION 10240
 #define STANDARD_REFRESH_INTERVAL 500
 #define STANDARD_TRAFFIC_FORMAT Statistics::humanReadableBit
 
@@ -74,8 +74,8 @@ static bool quit = false;
 int main(int argc, char *argv[])
 {
     SettingStore::add(Setting("AverageWindow", "Window length for average (s)", STANDARD_AVERAGE_WINDOW));
-    SettingStore::add(Setting("BarMaxIn", "Max Incoming deflection (kBit/s)", STANDARD_MAX_DEFLECTION));
-    SettingStore::add(Setting("BarMaxOut", "Max Outgoing deflection (kBit/s)", STANDARD_MAX_DEFLECTION));
+    // SettingStore::add(Setting("BarMaxIn", "Max Incoming deflection (kBit/s)", STANDARD_MAX_DEFLECTION));
+    // SettingStore::add(Setting("BarMaxOut", "Max Outgoing deflection (kBit/s)", STANDARD_MAX_DEFLECTION));
     SettingStore::add(Setting("DataFormat", "Unit for data numbers", STANDARD_DATA_FORMAT));
     SettingStore::add(Setting("Devices", "Devices to show", "all"));
     SettingStore::add(Setting("MultipleDevices", "Show multiple devices", STANDARD_HIDE_GRAPHS));
@@ -83,8 +83,8 @@ int main(int argc, char *argv[])
     SettingStore::add(Setting("TrafficFormat", "Unit for traffic numbers", STANDARD_TRAFFIC_FORMAT));
 
     SettingStore::get("AverageWindow").pushFilter(new SettingFilterMin(5));
-    SettingStore::get("BarMaxIn").pushFilter(new SettingFilterMin(10));
-    SettingStore::get("BarMaxOut").pushFilter(new SettingFilterMin(10));
+    // SettingStore::get("BarMaxIn").pushFilter(new SettingFilterMin(10));
+    // SettingStore::get("BarMaxOut").pushFilter(new SettingFilterMin(10));
     SettingStore::get("RefreshInterval").pushFilter(new SettingFilterMin(50));
 
     SettingStore::get("Devices").pushFilter(new SettingFilterDefault("all"));
@@ -157,6 +157,7 @@ int main(int argc, char *argv[])
         // the incoming bandwidth bar?
         else if(strcmp(argv[i], "-i") == 0)
         {
+			/*
             Setting& setting = SettingStore::get("BarMaxIn");
             
             if(i < argc - 1 && isdigit(argv[ i + 1 ][0]) != 0)
@@ -167,7 +168,7 @@ int main(int argc, char *argv[])
 
                 i++;
             }
-            else
+            else*/
             {
                 cerr << "Wrong argument for the -i parameter." << endl;
                 printHelp(true);
@@ -178,6 +179,7 @@ int main(int argc, char *argv[])
         // the outgoing bandwidth bar?
         else if(strcmp(argv[i], "-o") == 0)
         {
+			/*
             Setting& setting = SettingStore::get("BarMaxOut");
             
             if(i < argc - 1 && isdigit(argv[ i + 1 ][0]) != 0)
@@ -188,7 +190,7 @@ int main(int argc, char *argv[])
 
                 i++;
             }
-            else
+            else*/
             {
                 cerr << "Wrong argument for the -o parameter." << endl;
                 printHelp(true);
@@ -554,14 +556,14 @@ void printHelp(bool error)
         << "-a period       Sets the length in seconds of the time window for average\n"
         << "                calculation.\n"
         << "                Default is " << STANDARD_AVERAGE_WINDOW << ".\n"
-        << "-i max_scaling  Specifies the 100% mark in kBit/s of the graph indicating the\n"
-        << "                incoming bandwidth usage. Ignored if max_scaling is 0 or the\n"
-        << "                switch -m is given.\n"
-        << "                Default is " << STANDARD_MAX_DEFLECTION << ".\n"
+        // << "-i max_scaling  Specifies the 100% mark in kBit/s of the graph indicating the\n"
+        // << "                incoming bandwidth usage. Ignored if max_scaling is 0 or the\n"
+        // << "                switch -m is given.\n"
+        // << "                Default is " << STANDARD_MAX_DEFLECTION << ".\n"
         << "-m              Show multiple devices at a time; no traffic graphs.\n"
-        << "-o max_scaling  Same as -i but for the graph indicating the outgoing bandwidth\n"
-        << "                usage.\n"
-        << "                Default is " << STANDARD_MAX_DEFLECTION << ".\n"
+        // << "-o max_scaling  Same as -i but for the graph indicating the outgoing bandwidth\n"
+        // << "                usage.\n"
+        // << "                Default is " << STANDARD_MAX_DEFLECTION << ".\n"
         << "-t interval     Determines the refresh interval of the display in milliseconds.\n"
         << "                Default is " << STANDARD_REFRESH_INTERVAL << ".\n"
         << "-u h|b|k|m|g    Sets the type of unit used for the display of traffic numbers.\n"
@@ -578,6 +580,8 @@ void printHelp(bool error)
         << "example: " << PACKAGE << " -t 200 -i 1024 -o 128 -U M\n\n"
 
         << "The options above can also be changed at run time by pressing the 'F2' key.\n"
+		<< "-i/-o			deprecated parameter.NOT use this.\n"
+		<< "				now support dynamic scaling.\n"
         << endl;
 }
 

@@ -2,7 +2,7 @@
 .\" Man page for nload
 .\" Copyright (C) 2001 - 2012 by Roland Riegel <feedback@roland.riegel.de>
 .\"
-.TH nload 1 "February 06, 2012" nload "Network monitoring tools"
+.TH nload 1 "December 03, 2013" nload "Network monitoring tools"
 .SH NAME
 nload \- displays the current network usage
 
@@ -57,17 +57,17 @@ is included below.
 Sets the length in seconds of the time window for average calculation.
 The default is 300.
 .TP
-.B \-i max_scaling
-Specifies the 100% mark in kBit/s of the graph indicating the incoming bandwidth usage.
-Ignored if max_scaling is 0 or the switch \-m is given. The default value for max_scaling
-is 10240.
+.\".B \-i max_scaling
+.\"Specifies the 100% mark in kBit/s of the graph indicating the incoming bandwidth usage.
+.\"Ignored if max_scaling is 0 or the switch \-m is given. The default value for max_scaling
+.\"is 10240.
 .TP
 .B \-m
 Show multiple devices at a time; do not show the traffic graphs.
 .TP
-.B \-o max_scaling
-Same as \-i but for the graph indicating the outgoing bandwidth usage.
-.TP
+.\".B \-o max_scaling
+.\"Same as \-i but for the graph indicating the outgoing bandwidth usage.
+.\".TP
 .B \-t interval
 Determines the refresh interval of the display in milliseconds.
 The default value of interval is 500.
@@ -178,14 +178,24 @@ are read by
 when running on Linux to get the network traffic data.
 
 .SH VERSION
-This manual page describes version @VERSION@ of
-.BR nload .
+This is a modifyed version by 
+.B liuyang1
+from origin 0.7.4 version.
 
 For updates, look at the nload homepage:
 .br
 .B http://www.roland-riegel.de/nload/
 
+For this modifyed version, look at this:
+.br
+.B  https://github.com/liuyang1/nload/
+
 .SH HELP
+
+If you have any commits or feature request for modifyed version, put your commits as issues at github.
+.br
+.B  https://github.com/liuyang1/nload/
+
 If you need help, either contact me directly (see below) or write to the
 nload-user mailing list at
 .br
@@ -197,6 +207,8 @@ after having subscribed at
 
 .SH AUTHOR
 Copyright (C) 2001 - 2012 Roland Riegel <feedback@roland-riegel.de>
+
+Copyright (C) 2013 liuyang1
 
 This program is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by

@@ -107,7 +107,7 @@ void Device::print(Window& window)
         
         m_deviceGraphIn.setNumOfBars(window.getWidth() * 2 / 3);
         m_deviceGraphIn.setHeightOfBars((window.getHeight() - window.getY() - 1) / 2);
-        m_deviceGraphIn.setMaxDeflection((unsigned long long) SettingStore::get("BarMaxIn") * 1024 / 8);
+        // m_deviceGraphIn.setMaxDeflection((unsigned long long) SettingStore::get("BarMaxIn") * 1024 / 8);
         m_deviceGraphIn.print(window, 0, window.getY());
         
         printStatisticsIn(window, window.getWidth() * 2 / 3 + 2, window.getY() - 5);
@@ -117,7 +117,7 @@ void Device::print(Window& window)
         
         m_deviceGraphOut.setNumOfBars(window.getWidth() * 2 / 3);
         m_deviceGraphOut.setHeightOfBars(window.getHeight() - window.getY());
-        m_deviceGraphOut.setMaxDeflection((unsigned long long) SettingStore::get("BarMaxOut") * 1024 / 8);
+        // m_deviceGraphOut.setMaxDeflection((unsigned long long) SettingStore::get("BarMaxOut") * 1024 / 8);
         m_deviceGraphOut.print(window, 0, window.getY());
         
         printStatisticsOut(window, window.getWidth() * 2 / 3 + 2, window.getY() - 4);

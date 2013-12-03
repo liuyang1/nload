@@ -1,3 +1,8 @@
+2013-12-02 Liuyang1 <liuyang1@mail.ustc.edu.cn>
+
+	* fixed option window invaild read or write error
+	
+	* add dynamic scaling feature
 
 2012-02-06 Roland Riegel <feedback@roland-riegel.de>
 

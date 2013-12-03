@@ -24,7 +24,7 @@
 using namespace std;
 
 Graph::Graph()
-    : m_heightOfBars(5), m_maxDeflection(1)
+    : m_heightOfBars(5), m_maxDeflection(1024*1024/8)
 {
 	setDynamicMax();
 }

@@ -28,15 +28,17 @@ const unsigned long long gibi = 1024 * 1024 *1024;
 
 static unsigned long long ThresArray[]=
 {0, 1, 2, 4, 8, 16, 32, 64, 128, 256, 512,
-	kilo, 1*kilo, 2*kilo, 4*kilo, 8*kilo, 16*kilo, 32*kilo, 64*kilo, 128*kilo, 256*kilo, 512*kilo,
-	mega, 1*mega, 2*mega, 4*mega, 8*mega, 16*mega, 32*mega, 64*mega, 128*mega, 256*mega, 512*mega,
-	gibi};
+	1*kilo, 2*kilo, 4*kilo, 8*kilo, 16*kilo, 32*kilo, 64*kilo, 128*kilo, 256*kilo, 512*kilo,
+	1*mega, 2*mega, 4*mega, 8*mega, 16*mega, 32*mega, 64*mega, 128*mega, 256*mega, 512*mega,
+	1*gibi, 2*gibi, 4*gibi, 8*gibi, 16*gibi, 32*gibi, 64*gibi, 128*gibi, 256*gibi, 512*gibi,
+	};
 
 static char ThresStr[][10]=
 {"NULL", "1b","2b","4b","8b","16b","32b","64b","128b","256b","512b",
-	"1Kb","2Kb","4Kb","8Kb","16Kb","32Kb","256Kb","512Kb",
-	"1Mb","2Mb","4Mb","8Mb","16Mb","32Mb","256Mb","512Mb",
-	"1Gb"};
+	"1Kb","2Kb","4Kb","8Kb","16Kb","32Kb","64Kb","128Kb","256Kb","512Kb",
+	"1Mb","2Mb","4Mb","8Mb","16Mb","32Mb","64Kb","128Kb","256Mb","512Mb",
+	"1Gb","2Gb","4Gb","8Gb","16Gb","32Gb","64Kb","128Kb","256Gb","512Gb",
+	};
 	
 inline unsigned long long getThresh(unsigned long long val)
 {

@@ -16,3 +16,6 @@ make
 make install 
 
 more details, read the README manual
+
+## Build Status
+[![Build Status](https://travis-ci.org/liuyang1/nload.svg?branch=master)](https://travis-ci.org/liuyang1/nload)

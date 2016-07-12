@@ -1,21 +1,18 @@
 nload
 =====
 
+Dynamic scaling nload
+
+[![Build Status](https://travis-ci.org/liuyang1/nload.svg?branch=master)](https://travis-ci.org/liuyang1/nload)
+
 Fork from nload by Roland Riegel.
 
-Auto dynamic scaling to show incoming and outcoming speed, setting for -i max_scaling -o max_scaling is invaild now.
-
-
+Auto dynamic scaling to show incoming and outcoming speed, setting for `-i max_scaling -o max_scaling` is invaild now.
 
 ## Install
 
-./configure
+    ./configure
+    make
+    make install
 
-make
-
-make install 
-
-more details, read the README manual
-
-## Build Status
-[![Build Status](https://travis-ci.org/liuyang1/nload.svg?branch=master)](https://travis-ci.org/liuyang1/nload)
+More details, read the README manual
